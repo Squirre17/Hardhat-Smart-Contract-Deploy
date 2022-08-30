@@ -1,17 +1,12 @@
-const {task} = require('hardhat/config')
+const { task } = require("hardhat/config")
 
-/* task(name, description)
-	.addParam(toTask)
-	.setAction(actually do)
-*/
-task("block-number", "Prints the current block number")
-	.setAction(
-		// hre => hardhat runtime envirn
-		// it can access all packages imporyed
-		async(taskArgs, hre) =>{
-			// blocknumber
-			const bn = await hre.ethers.provider
-								.getBlockNumber()
-			console.log(`Blocknumber is ${bn}`)
-		}
-	)
+task("block-number", "Prints the current block number").setAction(
+  // const blockTask = async function() => {}
+  // async function blockTask() {}
+  async (taskArgs, hre) => {
+    const blockNumber = await hre.ethers.provider.getBlockNumber()
+    console.log(`Current block number: ${blockNumber}`)
+  }
+)
+
+module.exports = {}
